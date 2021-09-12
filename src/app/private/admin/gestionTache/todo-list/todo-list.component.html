@@ -1,0 +1,47 @@
+<app-sidebar></app-sidebar>
+<app-navbar></app-navbar>
+<div style=" padding-top: 10%;padding-bottom:29.8%;">
+    <h3 style="padding-left: 15%;"><i style="padding-left: 15%;" class="fas fa-calendar-check"></i> Todo List </h3>
+    <br>
+
+    <button class="btn-tache" style="margin-left: 35%; width: 30%;" type="submit" [routerLink]="['/todo-add']">Add a task</button>
+    <br><br><br>
+
+    <div style="margin:5px 0px" class="container">
+        <ul class="list-group">
+
+            <li class="list-group-item" *ngFor="let todo of todos" [class.completed]="todo.completed === true">
+                <div class="todo-row" *ngIf="!editing || editingTodo.id != todo.id">
+                    <a class="todo-completed" (click)="toggleCompleted(todo)">
+                        <i class="material-icons toggle-completed-checkbox"></i>
+                    </a>
+                    <span class="todo-title">
+                       {{todo.description}}
+                    </span>
+
+                    <span class="todo-actions pull-right">
+                        <a (click)="updateTodo(todo)">
+                          <i class="material-icons edit">edit</i>
+                        </a>
+                        <a (click)="deleteTodo(todo)">
+                          <i class="material-icons delete">clear</i>
+                        </a>
+                    </span>
+                </div>
+                <div class="todo-edit" *ngIf="editing && editingTodo.id === todo.id">
+                    <input class="form-control" type="text" [(ngModel)]="editingTodo.titre" required>
+                    <span class="edit-actions">
+                        <a (click)="updateTodo(editingTodo)">
+                          <i class="material-icons">done</i>
+                        </a>
+                        <a (click)="deleteTodo(todo)">
+                          <i class="material-icon"></i>
+                        </a>
+                    </span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+</div>
+<app-footer></app-footer>

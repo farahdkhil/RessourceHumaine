@@ -1,0 +1,41 @@
+<app-sidebar></app-sidebar>
+<app-navbar></app-navbar>
+
+<div style="padding-left: 15%;padding-bottom:29.8%;">
+    <h3><i class="fa fa-angle-right" style="padding-top: 10%;">Meetings</i> </h3>
+    <br>
+
+    <button class=" btn-meeting" type="submit" style="margin-left: 30%; width: 30%;" [routerLink]="['/add-meeting']" routerLinkActive="router-link-active">Add a meeting</button>
+    <br><br><br>
+
+
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <table class="table table-striped" style="padding-left:50%;padding-right:10%">
+
+                <thead class="thead-inverse">
+                    <tr>
+                        <th>title</th>
+                        <th>type</th>
+                        <th>meeting Day</th>
+                        <th>meeting Time</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let meeting of meetings">
+                        <td>{{meeting.titre}}</td>
+                        <td>{{meeting.type}}</td>
+                        <td>{{meeting.meetingDay}}</td>
+                        <td>{{meeting.meetingTime}}</td>
+                        <td>
+                            <button class=" btn action-button btn-success" [routerLink]="['/update-meeting']" routerLinkActive="router-link-active"><i class="fas fa-edit"></i></button>
+                            <button class="btn btn-danger btn-xs" (click)="deleteMeetingById(meeting)"> <i class="fas fa-trash-alt"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

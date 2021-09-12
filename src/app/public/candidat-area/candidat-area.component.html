@@ -1,0 +1,196 @@
+<app-navbar></app-navbar>
+<div class=" container" style="padding-top: 5%">
+    <div class="col-lg-6 col-md-6 col-sm-12">
+        <!--  BASIC BUTTONS -->
+        <div class="showback">
+            <h4><i class="fa fa-angle-right"></i> Civility</h4>
+            <form class="form-horizontal style-form" style="margin-top: 5px;" [formGroup]="myForm" (ngSubmit)="saveCandidature()">
+                <div class=" form-group ">
+                    <label class="col-sm-2 col-sm-2 control-label ">First name</label>
+                    <div class="col-sm-10 ">
+                        <input formControlName="firstname " type="text " class="form-control " name="prenom " id="prenom " placeholder=" ">
+                        <div *ngIf="firstname?.touched || firstname?.invalid ">
+                            <small *ngIf="firstname?.errors?.required " class="text-danger ">Firstname is required</small>
+                            <small *ngIf="firstname?.errors?.email " class="text-danger ">Invalid Firstname</small>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="form-group ">
+                    <label class="col-sm-2 col-sm-2 control-label ">Last name</label>
+                    <div class="col-sm-10 ">
+                        <input formControlName="lastname " type="text " class="form-control " name="nom " id="nom " placeholder=" ">
+                        <div *ngIf="lastname?.touched || lastname?.invalid ">
+                            <small *ngIf="lastname?.errors?.required " class="text-danger ">lastname is required</small>
+                            <small *ngIf="lastname?.errors?.email " class="text-danger ">Invalid lastname</small>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 col-sm-2 control-label">Date of birth</label>
+                    <div class="col-sm-10">
+                        <input formControlName="datebirth " type="date" class="form-control" name="dateOfBirth" id="dateOfBirth" placeholder="">
+                        <div *ngIf="datebirth?.touched || datebirth?.invalid ">
+                            <small *ngIf="datebirth?.errors?.required " class="text-danger" style="font-size: 11px;">Date of birth is required</small>
+                        </div>
+                    </div>
+                </div>
+                <!--  <div class="form-group">
+                    <label class="control-label col-md-3">Advance Datetimepicker</label>
+                    <div class="col-md-4">
+                        <div data-date="2014-02-01T10:05:00Z" class="input-group date form_datetime-adv">
+                            <input type="text" class="form-control" readonly="" size="16">
+                            <div class="input-group-btn">
+                                <button type="button" class="btn btn-theme02 date-reset"><i class="fa fa-times"></i></button>
+                                <button type="button" class="btn btn-theme date-set"><i class="fa fa-calendar"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="form-group ">
+                    <label class="col-sm-2 col-sm-2 control-label ">Email</label>
+                    <div class="col-sm-10 ">
+                        <input formControlName="email " type="text " class="form-control " name="email " id="email " placeholder=" ">
+                        <div *ngIf="email?.touched || email?.invalid ">
+                            <small *ngIf="email?.errors?.required " class="text-danger ">email is required</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label class="col-sm-2 col-sm-2 control-label ">Phone</label>
+                    <div class="col-sm-10 ">
+                        <input formControlName="phone " type="number " class="form-control " name="phone " id="phone " placeholder=" ">
+                        <div *ngIf="phone?.touched || phone?.invalid ">
+                            <small *ngIf="phone?.errors?.required " class="text-danger ">phone is required</small><br>
+                            <small *ngIf="phone?.errors?.pattern " class="text-danger ">Invalid phone</small><br>
+                            <small *ngIf="phone?.errors?.minlenght " class="text-danger ">phone must contains eight charactter at least</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 col-sm-2 control-label">CV</label>
+                    <div class="col-sm-10">
+                        <div style="margin-top:3px">
+                            <!-- <span class="fileupload-new"><i class="fa fa-paperclip"></i> Select file</span> -->
+                            <input formControlName="cv " type="file" (change)="selectFileCV($event)" style="height:100%">
+                            <div *ngIf="cv?.touched ">
+                                <small *ngIf="cv?.errors?.required " class="text-danger ">CV is required</small><br>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 col-sm-2 control-label">Cover letter</label>
+                    <div class="col-sm-10">
+                        <div style="margin-top:3px">
+                            <!-- <span class="fileupload-new"><i class="fa fa-paperclip"></i> Select file</span> -->
+                            <input formControlName="coverletter " type="file" (change)="selectFileLettre($event)" style="height:100%">
+                            <div *ngIf="coverletter?.touched ">
+                                <small *ngIf="coverletter?.errors?.required " class="text-danger ">cover letter is required</small><br>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group ">
+                    <label class="col-sm-2 col-sm-2 control-label ">Apply For</label>
+                    <div class="col-sm-10 ">
+                        <div class="radio">
+                            <label>
+                              <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                            <strong>Job</strong> 
+                              </label><br/>
+                            <label>
+                              <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                            <strong>Traineeship</strong> 
+                              </label>
+                            <div *ngIf="apply?.invalid ">
+                                <small *ngIf="apply?.errors?.required " class="text-danger ">this is required</small><br>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- /col-lg-6 -->
+    <div class="col-lg-6 col-md-6 col-sm-12 ">
+        <!--  BUTTONS SIZES -->
+        <div class="showback ">
+            <h4><i class="fa fa-angle-right "></i> Study level </h4>
+            <form class="form-horizontal style-form " style="margin-top: 10px; ">
+                <div class="form-group ">
+                    <label class="col-sm-2 col-sm-2 control-label ">Level</label>
+                    <div class="col-sm-10 ">
+                        <input formControlName="level " type="text " class="form-control " name="niveauEtud " id="niveauEtud " placeholder=" ">
+                        <div *ngIf="level?.touched && level?.invalid ">
+                            <small *ngIf="level?.errors?.required " class="text-danger ">level is required</small><br>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label class="col-sm-2 col-sm-2 control-label ">Diploma title </label>
+                    <div class="col-sm-10 ">
+                        <input formControlName="titleDip " type="text " class="form-control " name="titreDiplome " id="titreDiplome " placeholder=" ">
+                        <div *ngIf="titleDip?.touched && titleDip?.invalid ">
+                            <small *ngIf="titleDip?.errors?.required " class="text-danger ">Diploma title is required</small><br>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label class="col-sm-2 col-sm-2 control-label ">University school</label>
+                    <div class="col-sm-10 ">
+                        <input formControlName="university " type="text " class="form-control " name="university " id="university " placeholder=" ">
+                        <div *ngIf="university?.touched && university?.invalid ">
+                            <small *ngIf="university?.errors?.required " class="text-danger ">university is required</small><br>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- /showback -->
+        <!-- BUTTON BLOCK -->
+        <div class="showback ">
+            <h4><i class="fa fa-angle-right "></i> Experience</h4>
+            <form class="form-horizontal style-form " style="margin-top: 10px; ">
+                <div class="form-group ">
+                    <label class="col-sm-2 col-sm-2 control-label ">Years experience</label>
+                    <div class="col-sm-10 ">
+                        <input formControlName="yearsExp " type="text " class="form-control " name="niveauExp " id="niveauExp " placeholder=" ">
+                        <div *ngIf="yearsExp?.touched && yearsExp?.invalid ">
+                            <small *ngIf="yearsExp?.errors?.required " class="text-danger ">Years experience is required</small><br>
+                            <small *ngIf="yearsExp?.errors?.pattern " class="text-danger ">Invalid Years experience</small><br>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label class="col-sm-2 col-sm-2 control-label ">Your experiences</label>
+                    <div class="col-sm-10 ">
+                        <textarea formControlName="descExp " class="form-control " name="experience " id="experience " placeholder=" " rows="4 "></textarea>
+                        <div *ngIf="descExp?.touched && descExp?.invalid ">
+                            <small *ngIf="descExp?.errors?.required " class="text-danger ">Your experiences is required</small><br>
+                            <small *ngIf="descExp?.errors?.pattern " class="text-danger ">Invalid Your experiences</small><br>
+                            <small *ngIf="descExp?.errors?.minlenght " class="text-danger ">Your experiences must contains ten charactter at least</small>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+        <!--/showback -->
+
+        <!-- DROPDOWN BUTTONS -->
+
+        <button type="button " class="btn btn-save btn-theme04 " style="margin-left: 230px ">Save</button>
+    </div>
+    <!-- /col-lg-6 -->
+</div>
+<app-footer></app-footer>

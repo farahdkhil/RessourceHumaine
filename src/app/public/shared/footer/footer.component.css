@@ -1,0 +1,19 @@
+p {
+    color: #fff;
+    font-size: 10px;
+}
+
+#copyrights {
+    background: #222222;
+    padding: 20px 0;
+    text-align: center;
+}
+
+#copyrights p {
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+#copyrights a {
+    color: #fff;
+}

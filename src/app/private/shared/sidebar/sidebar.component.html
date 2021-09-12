@@ -1,0 +1,89 @@
+<aside>
+    <div id="sidebar" class="nav-collapse ">
+        <!-- sidebar menu start-->
+        <ul class="sidebar-menu" id="nav-accordion">
+            <p class="centered">
+                <a [routerLink]="['/empl-profil']" routerLinkActive="router-link-active"><img src="../../../../assets/img/ui-sam.jpg" class="rounded-circle" width="80"></a>
+            </p>
+            <h5 class="centered">Sam Soffes</h5>
+            <li class="mt">
+                <a [routerLink]="['/dashboard']" routerLinkActive="router-link-active">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+
+            <li *ngIf="isAdmin" class="sub-menu">
+                <a [routerLink]="['/list-meeting']">
+                    <i class="far fa-calendar-alt"></i>
+                    <span>Meetings</span>
+                </a>
+
+            </li>
+            <li *ngIf="isAdmin" class="sub-menu">
+                <a [routerLink]="['/list-candidat']">
+                    <i class="fas fa-file-alt"></i>
+                    <span>Recruitment</span>
+                </a>
+
+            </li>
+            <li *ngIf="isAdmin" class="sub-menu">
+                <a [routerLink]="['/todo-list']">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>To do list</span>
+                </a>
+            </li>
+            <li *ngIf="isAdmin" class="sub-menu">
+                <a [routerLink]="['/depenses']">
+                    <i class="fas fa-money-check-alt"></i>
+                    <span>Dependencies</span>
+                </a>
+            </li>
+            <li *ngIf="isEmployee" class="sub-menu">
+                <a [routerLink]="['/empl-profil']">
+                    <i class="fa fa-user"></i>
+                    <span>Employee profile</span>
+                </a>
+
+            </li>
+            <li class="sub-menu">
+                <a [routerLink]="['/settings']">
+                    <i class="fa fa-cogs"></i>
+                    <span>Settings</span>
+                </a>
+
+            </li>
+            <li *ngIf="isEmployee" class="sub-menu">
+                <a>
+                    <i class="fa fa-th"></i>
+                    <span>Vacations</span>
+                </a>
+                <ul class="sub">
+                    <li><a [routerLink]="['/request-vacation']"><i class="fa fa-edit"></i>Request Vacation</a></li>
+                    <li><a [routerLink]="['/list-vacation']"><i class="fa fa-book"></i>My Vacations</a></li>
+                </ul>
+            </li>
+            <h6 *ngIf="isEmployee" style="padding-left: 30px;">Vacations</h6>
+
+            <li class="sub-menu"><a [routerLink]="['/request-vacation']"><i class="fas fa-user-edit"></i>Request Vacation</a></li>
+            <li class="sub-menu"><a [routerLink]="['/list-vacation']"><i class="fas fa-file-archive"></i>My Vacations</a></li>
+            <h6 *ngIf="isAdmin" style="padding-left: 30px;">Employees</h6>
+
+            <li *ngIf="isAdmin" class="sub-menu"><a [routerLink]="['/list-employees']"><i class="fas fa-user-edit"></i>Employees list</a></li>
+            <li *ngIf="isAdmin" class="sub-menu"><a [routerLink]="['/archived-employees']"><i class="fas fa-file-archive"></i>Archived Employees</a></li>
+
+            <h6 *ngIf="isAdmin" style="padding-left: 30px;">Account</h6>
+
+            <li *ngIf="isAdmin" class="sub-menu"><a [routerLink]="['/list-compte']"><i class="fas fa-user-edit"></i>Accounts</a></li>
+            <li *ngIf="isAdmin" class="sub-menu"><a [routerLink]="['/creer-compte']"><i class="fas fa-file-archive"></i>Create Account</a></li>
+
+
+            <h6 *ngIf="isAdmin" style="padding-left: 30px;">Vacations</h6>
+
+            <li *ngIf="isAdmin" class="sub-menu"><a [routerLink]="['/review-vacation']"><i class="fas fa-user-edit"></i>List of Vacations</a></li>
+            <li *ngIf="isAdmin" class="sub-menu"><a [routerLink]="['/list-request']"><i class="fas fa-file-archive"></i>Request of Vacations</a></li>
+
+        </ul>
+        <!-- sidebar menu end-->
+    </div>
+</aside>

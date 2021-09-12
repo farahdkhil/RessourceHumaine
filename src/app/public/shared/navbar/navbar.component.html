@@ -1,0 +1,26 @@
+<nav class="header black-bg">
+
+    <!--logo start-->
+    <a class="logo"><b>HR<span>App</span></b></a>
+    <!--logo end-->
+
+    <div class="nav notify-row  " id="top_menu">
+        <ul class="nav top-menu">
+            <li>
+                <a class="btn btn1 btn btn-theme" routerLink="/">Home</a>
+            </li>
+            <li id="header_inbox_bar">
+                <a class="btn btn2 btn btn-theme" routerLink="/candidat-area">Candidate area</a>
+
+            </li>
+
+        </ul>
+    </div>
+    <div class="top-menu" style="padding-left: 90%;padding-top: 1%;">
+        <ul class="nav pull-right top-menu">
+            <li><a class="logout" [routerLink]="['/login']" routerLinkActive="router-link-active" style="font-style:oblique;">Login</a></li>
+
+            <li><a class="logout" href="login.html" style="font-style:oblique; ">Logout</a></li>
+        </ul>
+    </div>
+</nav>

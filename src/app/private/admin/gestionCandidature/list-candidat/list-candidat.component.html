@@ -1,0 +1,39 @@
+<app-sidebar></app-sidebar>
+<app-navbar></app-navbar>
+
+<div style="padding-left: 30%;padding-top: 10%;padding-bottom: 32%;">
+
+    <h3 style="padding-top: 3%;"><i class="fa fa-angle-right"></i> List of candidates</h3>
+    <table class="table table-striped">
+
+        <thead class="thead-inverse">
+            <tr>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>email</th>
+                <th>CV</th>
+                <th>action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let candidate of candidats">
+                <td>{{candidate.firstname}}</td>
+                <td>{{candidate.lastname}}</td>
+                <td>{{candidate.email}}</td>
+                <td>{{candidate.pathCv}}
+                    <a href="" class="cv"> <i class="fa fa-download"></i></a>
+                    <td>
+                        <a class="cv"> <i class="fa fa-download"></i></a>
+
+                    </td>
+                    <td>
+                        <button class=" btn action-button btn-success" [routerLink]="['/profil-candidat']" routerLinkActive="router-link-active"><i class="fa fa-eye"></i></button>
+                        <button class="btn btn-danger btn-xs"><i class="fa fa-trash "></i></button>
+
+                    </td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>
+<app-footer></app-footer>

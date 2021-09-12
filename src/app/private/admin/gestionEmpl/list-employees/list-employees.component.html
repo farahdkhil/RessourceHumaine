@@ -1,0 +1,54 @@
+<app-sidebar></app-sidebar>
+<app-navbar></app-navbar>
+<div style="padding-top:10%;padding-left: 13%; padding-bottom: 26%;">
+    <h3><i class="fa fa-angle-right"></i> List of employees</h3>
+    <div>
+        <input style="width: 15%;font-size:20px;" type="text" placeholder="Search ..." [(ngModel)]="nom" (input)="filterByName(nom)">
+    </div>
+
+    <table class="table table-striped container">
+
+        <thead class="thead-inverse">
+            <tr>
+                <th></th>
+                <th>first name</th>
+                <th>last name</th>
+                <th>Post</th>
+                <th>phone</th>
+                <th>email</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let employe of employees">
+                <td><img src="http://localhost:8080/avatar/{{employe.idUser}}" alt="user" width="70" class="img-circle"></td>
+                <td>{{employe.prenom}}</td>
+                <td>{{employe.nom}}</td>
+                <td>{{employe.fonction}}</td>
+                <td>{{employe.phone}}</td>
+                <td>{{employe.email}}</td>
+
+                <td>
+                    <div>
+                        <button style=" width: 26px;
+                        height: 26px;
+                        margin: 2px;
+                        font-size: 13px;" class="action-button btn-success" [routerLink]="['/profilEmploye', employe.idUser]"><i class="fa fa-edit"></i></button>
+                        <button style=" width: 26px;
+                        height: 26px;
+                        margin: 2px;
+                        font-size: 13px;" class="action-button btn-primary" [routerLink]="['/update-employee']" routerLinkActive="router-link-active"><i class="fas fa-pen-square"></i></button>
+                        <button style=" width: 26px;
+                        height: 26px;
+                        margin: 2px;
+                        font-size: 13px;" class="action-button btn-danger" (click)="archiveEmploye(employe)"><i class="fas fa-trash-alt"></i></button>
+                    </div>
+                </td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
+<app-footer></app-footer>
